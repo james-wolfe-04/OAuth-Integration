@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Profile</title>
+</head>
+<body>
+  <h1>Profile</h1>
+
+  <div>
+    <img th:if="${user.avatarUrl}" th:src="${user.avatarUrl}" alt="avatar" style="width:96px;height:96px;"/>
+    <p>Email: <span th:text="${user.email}"></span></p>
+    <p>Display name: <span th:text="${user.displayName}"></span></p>
+    <p>Bio: <span th:text="${user.bio}"></span></p>
+  </div>
+
+  <h2>Edit Profile</h2>
+  <form th:action="@{/logout}" method="post" style="display:inline;">
+  <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+  <button type="submit">Logout</button>
+</form>
+
+
+  <p><a th:href="@{/}">Home</a> | <a th:href="@{/logout}">Logout</a></p>
+
+  <div th:if="${param.success}">
+    <p>Profile updated successfully.</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Home - OAuth2 Demo</title>
+</head>
+<body>
+  <h1>Welcome</h1>
+
+  <div th:if="${isAuthenticated}">
+    <p>Logged in as <span th:text="${name}"></span></p>
+    <p><a th:href="@{/profile}">View Profile</a></p>
+    <p><a th:href="@{/perform-logout}">Logout</a> <!-- GET logout endpoint -->
+  </div>
+
+  <div th:if="${!isAuthenticated}">
+    <p>Login using:</p>
+    <a th:href="@{/oauth2/authorization/google}">Login with Google</a><br/>
+    <a th:href="@{/oauth2/authorization/github}">Login with GitHub</a>
+  </div>
+</body>
+</html>
