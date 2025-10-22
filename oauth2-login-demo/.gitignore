@@ -1,8 +1,8 @@
 # Secrets
-**/application-secret.properties
-**/application-secret.yml
-application-secret.*
+src/main/resources/application.properties
+src/main/resources/application-secret.properties
 .env
+
 
 HELP.md
 target/
